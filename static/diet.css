@@ -1,0 +1,44 @@
+/* static/styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    margin-top: 20px;
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.diet-plan {
+    margin-top: 20px;
+}
+
+.meal-plan {
+    margin-left: 20px;
+}
+
+.snacks-list {
+    margin-left: 20px;
+}
+
+.water-intake {
+    margin-top: 20px;
+}

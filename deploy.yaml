@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dietplan
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dietplan
+  template:
+    metadata:
+      labels:
+        app: dietplan
+    spec:
+      containers:
+      - name: dietplan
+        image: pratsa.azurecr.io/dietplan:6ea599a115fb2e37c11f63eb1b739de2a4ed486d
+        ports:
+        - containerPort: 5000
+        env:
+        - name: API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: apikey
+              key: api-key
