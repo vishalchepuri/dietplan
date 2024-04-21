@@ -37,4 +37,9 @@ jobs:
 
       - name: Push Docker image
         run: docker push pratsa.azurecr.io/dietplan:${{ github.sha }}
-
+        
+      - name: Deploy to AKS
+        run: |
+          az account set --subscription ${{ secrets.AZURE_SUBSCRIPTION }}
+          az aks get-credentials --resource-group vc9071 --name pratsa --overwrite-existing
+          kubectl set image deployment/dietplan dietplan=pratsa.azurecr.io/dietplan:${{ github.sha }}
