@@ -1,12 +1,9 @@
-# Import necessary modules
 from flask import Flask, render_template, request
 import google.generativeai as genai
 import os
 
-# Create Flask app instance
 app = Flask(__name__)
 
-# Define function to get Gemini response
 def get_gemini_response(question):
     key = os.environ.get('API_KEY')
     genai.configure(api_key=key)
@@ -14,15 +11,7 @@ def get_gemini_response(question):
     response = model.generate_content(question)
     return response.text
 
-# Define route to render index.html
-@app.route('/')
-def index():
-    return render_template('index.html')
-
-# Define route to handle form submission and generate diet plan
-@app.route('/dietplan', methods=['GET'])
-# Define route to handle form submission and generate diet plan
-@app.route('/dietplan', methods=['GET'])
+@app.route('/', methods=['GET'])
 def diet_plan():
     height = request.args.get('height')
     weight = request.args.get('weight')
@@ -41,6 +30,5 @@ def diet_plan():
     return render_template('result.html', diet_plan=response)
 
 
-# Run the Flask app
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
