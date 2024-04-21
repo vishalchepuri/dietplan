@@ -2,17 +2,21 @@ from flask import Flask, jsonify
 import google.generativeai as genai # Your generative AI import
 import os   
 
-key = os.environ.get('API_KEY')
-
-
-genai.configure(api_key=key)
 
 app = Flask(__name__)
 
 def get_gemini_response(question):
+    key = os.environ.get('API_KEY')
+    genai.configure(api_key=key)
     model = genai.GenerativeModel('gemini-pro')
     response = model.generate_content(question)
     return response.text
+
+
+@app.route('/')
+def all():
+    return "Working"
+
 
 @app.route('/dietplan/<height>/<weight>')
 def get_diet_plan(height, weight):
@@ -28,4 +32,6 @@ def get_diet_plan(height, weight):
     return jsonify({'diet_plan': response})
 
 if __name__ == '__main__':
-    app.run(debug=True) 
+    print("I called")
+    app.run(host='0.0.0.0', port=5000)
+
