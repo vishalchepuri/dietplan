@@ -11,7 +11,12 @@ def get_gemini_response(question):
     response = model.generate_content(question)
     return response.text
 
-@app.route('/', methods=['GET'])
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+
+@app.route('/dietplan', methods=['GET'])
 def diet_plan():
     height = request.args.get('height')
     weight = request.args.get('weight')
@@ -26,7 +31,6 @@ def diet_plan():
     note: In the output nothing should be bold
     """
     response = get_gemini_response(prompt)
-    
     return render_template('result.html', diet_plan=response)
 
 
