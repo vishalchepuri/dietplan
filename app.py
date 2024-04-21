@@ -18,6 +18,7 @@ def index():
 
 @app.route('/dietplan', methods=['GET'])
 def diet_plan():
+    height,weight,gender=5.6,45,"Male"
     height = request.args.get('height')
     weight = request.args.get('weight')
     gender =  request.args.get('gender')
@@ -28,7 +29,6 @@ def diet_plan():
     Indian Cuisine: I prefer Indian food options for both a vegetarian and non-vegetarian plan.
     Schedule: Outline a sample daily meal plan with suggestions for breakfast, lunch, and dinner.
     Drinkng water: no. of liters
-    note: In the output nothing should be bold
     """
     response = get_gemini_response(prompt)
     return render_template('result.html', diet_plan=response)

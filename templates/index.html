@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diet Plan</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diet Plan Generator</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to Diet Plan Generator</h1>
-        <form action="/dietplan" method="get">
-            <label for="height">Height (in feet):</label>
-            <input type="text" id="height" name="height" required>
-            <label for="weight">Weight (in kilograms):</label>
-            <input type="text" id="weight" name="weight" required>
-            <label for="gender">Gender(Male/Female):</label>
-            <input type="text" id="gender" name="gender" required>
-            <button type="submit">Generate Diet Plan</button>
-        </form>
-        <div id="result"></div>
-    </div>
+  <div class="container">
+    <h1>Welcome to Diet Plan Generator</h1>
+    <form action="/dietplan" method="get">
+      <label for="height">Height (in feet):</label>
+      <input type="text" id="height" name="height">
+      <label for="weight">Weight (in kilograms):</label>
+      <input type="text" id="weight" name="weight" >
+      <label for="gender">Gender:</label>
+      <select id="gender" name="gender" >
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        </select>
+      <button type="submit">Generate Diet Plan</button>
+    </form>
+    <br>
+    <div id="result"></div>
+  </div>
 </body>
 </html>

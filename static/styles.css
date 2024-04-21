@@ -42,3 +42,40 @@ button {
 button:hover {
     background-color: #0056b3;
 }
+
+
+/* styles.css */
+
+select {
+    padding: 5px 10px; /* Adjust padding for desired spacing */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px; /* Adjust font size as needed */
+    background-color: #fff; /* Set background color for the dropdown */
+  }
+  
+  select:focus {
+    outline: none;
+    border-color: #999; /* Change border color on focus */
+  }
+  
+  /* Optional: Style the dropdown options */
+  select option {
+    padding: 5px 10px; /* Adjust padding for options */
+    background-color: #fff; /* Set background color for options */
+    cursor: pointer; /* Change cursor to indicate interactivity */
+  }
+  
+  /* Optional: Style the dropdown arrow */
+  select::-ms-expand-downarrow { /* For Internet Explorer */
+    appearance: none;
+    margin-right: 5px; /* Adjust margin for arrow positioning */
+  }
+  
+  select::after { /* For modern browsers */
+    content: "\25BC"; /* Downward triangle character for arrow */
+    font-size: 12px; /* Adjust arrow size */
+    color: #ccc; /* Set arrow color */
+    margin-left: 5px; /* Adjust margin for arrow positioning */
+  }
+  
